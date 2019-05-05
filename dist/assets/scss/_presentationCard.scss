@@ -1,0 +1,26 @@
+/* PRESENTATION CARD */
+
+.presentation-card{
+    margin-top: 16px;
+    background: $blue;
+    border: none;
+    @include shadow($shadow-1-5);
+    .card-body{
+        .card-header{
+            border-bottom: 1px solid white;
+            .card-header-title{
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: 700;
+                margin-bottom: 0;
+            }
+        }
+        .stack-list{
+            list-style: none;
+            padding: 0;
+            .head-stack{
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

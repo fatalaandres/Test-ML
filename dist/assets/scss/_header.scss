@@ -1,0 +1,63 @@
+/* HEADER */
+
+.header-ml{
+    background: $yellow;
+    .search-box{
+        @include flex();
+        @include justify(flex-start);
+        .navbar-brand{
+            padding: 0;
+            width: 50px;
+            position: relative;
+            img{
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                @include transform(translateY(-50%));
+            }
+        }
+        .form-search-box{
+            // @include calc( width, '100% - 50px');
+            width: 100%;
+            position: relative;
+            .input-search-box{
+                color: $gray;
+                &:focus{
+                    border-color: $gray2;
+                    outline: none;
+                    @include shadow(none);
+                }
+            }
+            .btn-submit-box{
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: 41px;
+                padding: 0;
+                &:focus{
+                    outline: none;
+                    @include shadow(none);
+                }
+                img{
+                    width: 18px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    @include transform(translate3d(-50%,-50%,0));
+                }
+            }
+            ::placeholder { 
+            color: $gray2;
+            }
+            
+            :-ms-input-placeholder { 
+            color: $gray2;
+            }
+            
+            ::-ms-input-placeholder { 
+            color: $gray2;
+            }
+        }
+    }
+}

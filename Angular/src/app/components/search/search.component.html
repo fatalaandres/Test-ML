@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-light header-ml">
+  <div class="container">
+    <div class="row full">
+      <div class="col-md-10 offset-md-1 search-box">
+        <a class="navbar-brand" routerLink="/">
+          <img src="assets/img/Logo_ML.png" srcset="assets/img/Logo_ML.png 2x">
+        </a>
+        <form action="/items" name="formSearch" class="form-search-box">
+          <input class="form-control mr-sm-2 input-search-box" type="text" name="search" placeholder="Nunca dejes de buscar" aria-label="Search" ng-minlength="1" required>
+          <button class="btn btn-submit-box" type="submit" ng-disabled="formSearch.$invalid">
+              <img src="assets/img/ic_Search.png" srcset="assets/img/ic_Search.png 2x">
+          </button>
+        </form>
+      </div>      
+    </div> 
+  </div>
+</nav>

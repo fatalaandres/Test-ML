@@ -1,0 +1,52 @@
+<ng-container *ngIf="err; else elseTemplate">
+  <div class="alert alert-id" role="alert">
+    El ID es incorrecto. Por favor verifiquelo e intente nuevamente.
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="row full">
+    <div class="col-md-10 offset-md-1">
+      <div class="breadcrumbs">
+          <p class="breadcrumb" *ngFor="let b of breadcrumb">
+            {{b}}<i class="fas fa-chevron-right"></i>
+          </p>
+      </div>
+    </div>
+  </div>
+  <div class="row full single-row">
+    <div class="col-md-7 offset-md-1">
+      <div class="single-image">
+        <img [attr.src]="img" class="single-img"/>
+      </div>
+    </div>
+    <div class="col-md-3 single-info">
+      <div class="first-data">
+        <ng-container *ngIf="single?.condition == 'new'; else elseTemplate">
+            <span>Nuevo</span>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <span>Usado</span>
+        </ng-template>
+         - {{single?.sold_quantity}} vendidos
+      </div>
+      <h3 class="single-title">
+        {{single?.title}}
+      </h3>
+      <span class="single-price">{{single?.base_price | currency:"ARS":"$": "1.0"}}</span>
+      <a class="single-btn">Comprar</a>
+    </div>
+    <div class="col-md-10 offset-md-1">
+      <div class="single-description">
+        <h3 class="single-description-title">Descripción del producto</h3>
+        <p class="single-description-p">{{single?.description_ml.plain_text}}</p>
+      </div>
+    </div>
+  </div>
+  
+</ng-template>
+
+<div class="loader" [class.isLoading]="isLoading">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Cargando...</span>
+  </div>
+</div>

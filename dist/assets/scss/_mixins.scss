@@ -1,0 +1,103 @@
+/* MIXINS */
+
+@mixin transform($param){
+	transform: $param;
+	-webkit-transform: $param;
+	-moz-transform: $param;
+	-ms-transform: $param;
+	-o-transform: $param;
+	-khtml-transform: $param;
+}
+
+@mixin calc($property, $param) {
+  #{$property}: -moz-calc(#{$param});
+  #{$property}: -webkit-calc(#{$param});
+  #{$property}: calc(#{$param});
+}
+
+@mixin border($param){
+	border-radius: $param;
+	-webkit-border-radius: $param;
+	-moz-border-radius: $param;
+	-ms-border-radius: $param;
+	-o-border-radius: $param;
+	-khtml-border-radius: $param;
+}
+
+@mixin transition($param){
+	transition: $param;
+	-webkit-transition: $param;
+	-moz-transition: $param;
+	-ms-transition: $param;
+	-o-transition: $param;
+	-khtml-transition: $param;
+}
+
+@mixin shadow($param){
+	box-shadow: $param;
+	-webkit-box-shadow: $param;
+	-moz-box-shadow: $param;
+	-ms-box-shadow: $param;
+	-o-box-shadow: $param;
+	-khtml-box-shadow: $param;
+}
+
+@mixin filter($param){
+	-webkit-filter: $param;
+    filter: $param;
+}
+
+@mixin flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin justify($param) {
+  -webkit-justify-content: $param;
+     -moz-justify-content: $param;
+      -ms-justify-content: $param;
+          justify-content: $param;
+            -ms-flex-pack: $param;
+}
+
+@mixin align-content($param) {
+  -webkit-align-content: $param;
+     -moz-align-content: $param;
+      -ms-align-content: $param;
+          align-content: $param;
+}
+
+@mixin align-items($param) {
+  -webkit-align-items: $param;
+     -moz-align-items: $param;
+      -ms-align-items: $param;
+          align-items: $param;
+}
+
+@mixin flex-direction($param) {
+  -webkit-flex-direction: $param;
+     -moz-flex-direction: $param;
+      -ms-flex-direction: $param;
+          flex-direction: $param;
+}
+
+@mixin responsive($media) {
+	@if $media == desktop {
+		@media only screen and (min-width: $desktop) { @content; }
+	}
+	@else if $media == notebook {
+		@media only screen and (min-width: $notebook){ @content; }
+	}
+	@else if $media == landscape-tablet {
+		@media only screen and (min-width: $landscape-tablet) and (orientation: landscape) { @content; }
+	}
+	@else if $media == tablet {
+		@media only screen and (min-width: $tablet){ @content; }
+	}
+	@else if $media == landscape-phone {
+		@media only screen and (min-width: $landscape-phone) and (orientation: landscape){ @content; }
+	}
+}

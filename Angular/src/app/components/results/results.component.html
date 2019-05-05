@@ -1,0 +1,48 @@
+<ng-container *ngIf="msj; else elseTemplate">
+    <div class="alert alert-id" role="alert">
+      Aquí se mostrarán los resultados de búsqueda.
+    </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="row full">
+    <div class="col-md-10 offset-md-1">
+      <div class="breadcrumbs">
+          <p class="breadcrumb" *ngFor="let b of breadcrumb">
+            {{b}}<i class="fas fa-chevron-right"></i>
+          </p>
+      </div>
+    </div>
+  </div>
+  <div class="row full item-row" *ngFor="let item of items">
+    <div class="col-md-8 offset-md-1 ">
+      <div class="item-box">
+
+        <a [routerLink]="['/items', item.id]">
+          <!-- <img class="item-img" [src]="item.pictures[0].secure_url" alt=""> -->
+          <div class="item-image" [style.backgroundImage]="'url('+ item.pictures[0].secure_url +')'"></div>
+        </a>
+        <div class="item-info">
+          <h3 class="item-price">
+            {{item.base_price | currency:"ARS":"$": "1.0"}}
+            <ng-container *ngIf="item.shipping.mode != 'not_specified'">
+                <img class="img-shipping" src="assets/img/ic_shipping.png" srcset="assets/img/ic_shipping.png 2x">
+            </ng-container>
+          </h3>
+          <a class="btn-title" [routerLink]="['/items', item.id]"><p class="item-title">{{item.title}}</p></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 item-location">
+      <p class="city">
+        {{item.seller_address.state.name}}
+      </p>      
+    </div>
+  </div>
+</ng-template>
+
+
+<div class="loader" [class.isLoading]="isLoading">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Cargando...</span>
+  </div>
+</div>
