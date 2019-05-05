@@ -26,4 +26,4 @@ Para realizar la ejecución del test se debe:
  - Abrir el navegador.
  - Dirigirse a http://localhost para visualizar el test.
  
-	> El desarrollo front-end se encuentra en la carpeta Angular. EL desarrollo back-end se encuentra en el archivo index.js.
+	> El desarrollo front-end se encuentra en la carpeta Angular. El desarrollo back-end se encuentra en el archivo index.js.
